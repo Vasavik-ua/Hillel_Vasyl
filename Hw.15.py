@@ -31,7 +31,7 @@ def check_isdigit(value):  # check the value and outcome the result.
                     new_minus = f'''Ви ввели від'ємне дробове число: {value}'''
                     return new_minus
             else:
-                new_minint = f'''Ви ввели від'ємне число: {value}'''
+                new_minint = f'''Ви ввели від'ємне ціле число: {value}'''
                 return new_minint
         else:
             if check_point >= 0 or check_comma >= 0:
