@@ -21,17 +21,21 @@ def check_isdigit(value):
     if new_value.isdigit():
         if value[:1] == '-':
             if check_point >= 0 or check_comma >= 0:
-                new_minus = (f'''Ви ввели від'ємне дробове число: {value}''')
-                return new_minus
+                if value[1:2] == ',' or value[1:2] == ',':
+                    new_minus = f'''Ви ввели від'ємне дробове число: -0.{new_value}'''
+                    return new_minus
+                else:
+                    new_minus = f'''Ви ввели від'ємне дробове число: {value}'''
+                    return new_minus
             else:
-                new_minint = (f'''Ви ввели від'ємне число: {value}''')
+                new_minint = f'''Ви ввели від'ємне число: {value}'''
                 return new_minint
         else:
             if check_point >= 0 or check_comma >= 0:
-                new_intdb = (f'Ви ввели позитивне дробове число: {value}')
+                new_intdb = f'Ви ввели позитивне дробове число: {value}'
                 return new_intdb
             else:
-                new_int = (f'Ви ввели позитивне ціле число: {value}')
+                new_int = f'Ви ввели позитивне ціле число: {value}'
                 return new_int
     else:
         return False
