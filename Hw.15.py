@@ -35,8 +35,12 @@ def check_isdigit(value):  # check the value and outcome the result.
                 return new_minint
         else:
             if check_point >= 0 or check_comma >= 0:
-                new_intdb = f'Ви ввели позитивне дробове число: {value}'
-                return new_intdb
+                if value[:1] == '.' or value[:1] == ',':
+                    new_intper = f'''Ви ввели позитивне дробове число: 0.{new_value}'''
+                    return  new_intper
+                else:
+                    new_intdb = f'Ви ввели позитивне дробове число: {value}'
+                    return new_intdb
             else:
                 new_int = f'Ви ввели позитивне ціле число: {value}'
                 return new_int
