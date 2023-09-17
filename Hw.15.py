@@ -6,7 +6,7 @@ def exit_quest(val):  # Check input value for exit.
     return False
 
 
-def check_isdigit(value):
+def check_isdigit(value):  # check the value and outcome the result.
     new_value = value
     check_minus = new_value.find('-')
     check_point = new_value.find('.')
@@ -19,6 +19,9 @@ def check_isdigit(value):
         elif check_comma >= 0:
             new_value = new_value.replace(',', '', 1)
     if new_value.isdigit():
+        if value == '0':
+            new_zero = f'Ви ввели нуль: {value}'
+            return new_zero
         if value[:1] == '-':
             if check_point >= 0 or check_comma >= 0:
                 if value[1:2] == '.' or value[1:2] == ',':
