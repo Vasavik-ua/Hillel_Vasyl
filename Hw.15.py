@@ -7,24 +7,22 @@ def exit_quest(value):  # Check input value for exit.
 
 
 def check_isdigit(value):
+    new_value = ()
     check_minus = value.find('-')
-    if check_minus > 0:
-        value.replace('-', '', 1)
     check_point = value.find('.')
     check_comma = value.find(',')
-    if check_point > 0 or check_comma > 0:
-        if check_point > 0:
-            value.replace('.', '', 1)
-        elif check_comma > 0:
-            value.replace(',', '', 1)
-    if value.isdigit():
-        return True
+    if check_minus >= 0:
+        new_value = value.replace('-', '', 1)
+    if check_point >= 0 or check_comma >= 0:
+        if check_point >= 0:
+            new_value = value.replace('.', '', 1)
+        elif check_comma >= 0:
+            new_value = value.replace(',', '', 1)
+    if new_value.isdigit():
+        return new_value
     else:
         print(f'Ви ввели неправильне число: {value}')
         return False
-
-
-
 
 
 
@@ -34,5 +32,7 @@ while True:
         break
     if check_isdigit(input_value) == False:
         pass
+    else:
+        break
 
 
