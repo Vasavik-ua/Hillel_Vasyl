@@ -21,7 +21,7 @@ def check_isdigit(value):
     if new_value.isdigit():
         if value[:1] == '-':
             if check_point >= 0 or check_comma >= 0:
-                if value[1:2] == ',' or value[1:2] == ',':
+                if value[1:2] == '.' or value[1:2] == ',':
                     new_minus = f'''Ви ввели від'ємне дробове число: -0.{new_value}'''
                     return new_minus
                 else:
