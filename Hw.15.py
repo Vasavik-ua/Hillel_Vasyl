@@ -32,4 +32,7 @@ while True:
     input_value = input('Number required: ')
     if exit_quest(input_value):
         break
+    if check_isdigit(input_value) == False:
+        pass
+
 
