@@ -8,22 +8,19 @@ def exit_quest(val):  # Check input value for exit.
 
 def check_isdigit(value):  # check the value and outcome the result.
     new_value = value
-    check_minus = new_value.find('-')
-    check_point = new_value.find('.')
-    check_comma = new_value.find(',')
-    if check_minus >= 0:
+    if (new_value.find('-')) >= 0:
         new_value = new_value.replace('-', '', 1)
-    if check_point >= 0 or check_comma >= 0:
-        if check_point >= 0:
+    if (new_value.find('.'))>= 0 or (new_value.find(',')) >= 0:
+        if (new_value.find('.')) >= 0:
             new_value = new_value.replace('.', '', 1)
-        elif check_comma >= 0:
+        else :
             new_value = new_value.replace(',', '', 1)
     if new_value.isdigit():
         if value == '0':
             new_zero = f'Ви ввели нуль: {value}'
             return new_zero
         if value[:1] == '-':
-            if check_point >= 0 or check_comma >= 0:
+            if (value.find('.')) >= 0 or (value.find(',')) >= 0:
                 if value[1:2] == '.' or value[1:2] == ',':
                     new_minus = f'''Ви ввели від'ємне дробове число: -0.{new_value}'''
                     return new_minus
@@ -34,7 +31,7 @@ def check_isdigit(value):  # check the value and outcome the result.
                 new_minint = f'''Ви ввели від'ємне ціле число: {value}'''
                 return new_minint
         else:
-            if check_point >= 0 or check_comma >= 0:
+            if (value.find('.')) >= 0 or (value.find(',')) >= 0:
                 if value[:1] == '.' or value[:1] == ',':
                     new_intper = f'''Ви ввели позитивне дробове число: 0.{new_value}'''
                     return new_intper
